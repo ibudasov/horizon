@@ -3,30 +3,19 @@ declare(strict_types=1);
 
 namespace App\Domain\Template;
 
-use Psr\Log\LoggerInterface;
-use Symfony\Component\HttpKernel\Log\Logger;
-use Symfony\Component\Messenger\Handler\HandlersLocator;
-use Symfony\Component\Messenger\MessageBus;
-use Symfony\Component\Messenger\Middleware\HandleMessageMiddleware;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 class CreateTemplateService
 {
-    /** @var LoggerInterface */
-    private $logger;
+    private MessageBusInterface $messageBus;
 
-    public function __construct(LoggerInterface $logger)
+    public function __construct(MessageBusInterface $messageBus)
     {
-        $this->logger = $logger;
+        $this->messageBus = $messageBus;
     }
 
     function createTemplate(TemplateName $name): void
     {
-        $bus = new MessageBus([
-            new HandleMessageMiddleware(new HandlersLocator([
-                CreateTemplateCommand::class => [new CreateTemplateHandler($this->logger)],
-            ])),
-        ]);
-
-        $bus->dispatch(new CreateTemplateCommand($name));
+        $this->messageBus->dispatch(new CreateTemplateCommand($name));
     }
 }

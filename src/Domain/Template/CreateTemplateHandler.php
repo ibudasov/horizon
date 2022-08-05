@@ -4,8 +4,9 @@ declare(strict_types=1);
 namespace App\Domain\Template;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-class CreateTemplateHandler
+class CreateTemplateHandler implements MessageHandlerInterface
 {
     /** @var LoggerInterface */
     private $logger;
