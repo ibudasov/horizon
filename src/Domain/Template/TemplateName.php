@@ -3,18 +3,20 @@ declare(strict_types=1);
 
 namespace App\Domain\Template;
 
-class CreateTemplateCommand
+class TemplateName
 {
-    /** @var TemplateName */
+    /** @var string */
     private $name;
 
-    public function __construct(TemplateName $name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    function getName(): TemplateName
+    function getValue(): string
     {
         return $this->name;
     }
+
+
 }

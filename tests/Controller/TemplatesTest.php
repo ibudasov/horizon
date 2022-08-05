@@ -4,9 +4,8 @@ declare(strict_types=1);
 namespace App\Tests\Controller;
 
 use App\Controller\CreateTemplateRequest;
-use App\Controller\Templates;
+use App\Controller\TemplatesController;
 use App\Domain\Template\CreateTemplateService;
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +16,7 @@ class TemplatesTest extends KernelTestCase
     function given_when_thenAll(): void
     {
         // Arrange
-        $controller = new Templates();
+        $controller = new TemplatesController();
 
         // Act
         $response = $controller->returnAllTheTemplates();
@@ -30,7 +29,7 @@ class TemplatesTest extends KernelTestCase
     function givenValidRequest_whenRequested_thenNewTemplateIsReturned(): void
     {
         // Arrange
-        $controller = new Templates();
+        $controller = new TemplatesController();
         $createOneRequest = Request::create(
             'ok',
             'POST',
