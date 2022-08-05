@@ -5,11 +5,13 @@ namespace App\Tests\Controller;
 
 use App\Controller\CreateTemplateRequest;
 use App\Controller\Templates;
+use App\Domain\Template\CreateTemplateService;
 use PHPUnit\Framework\TestCase;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class TemplatesTest extends TestCase
+class TemplatesTest extends KernelTestCase
 {
     /** @test */
     function given_when_thenAll(): void
@@ -38,7 +40,10 @@ class TemplatesTest extends TestCase
         );
 
         // Act
-        $response = $controller->createOne($createOneRequest);
+        $response = $controller->createOne(
+            $createOneRequest,
+            new CreateTemplateService()
+        );
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
