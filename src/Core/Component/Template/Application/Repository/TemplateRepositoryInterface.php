@@ -9,4 +9,6 @@ interface TemplateRepositoryInterface
 {
     /** @return Template[] */
     function allTemplates(): array;
+
+    function add(Template $template): void;
 }
