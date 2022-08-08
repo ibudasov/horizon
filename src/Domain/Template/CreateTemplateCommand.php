@@ -5,8 +5,7 @@ namespace App\Domain\Template;
 
 class CreateTemplateCommand
 {
-    /** @var TemplateName */
-    private $name;
+    private TemplateName $name;
 
     public function __construct(TemplateName $name)
     {

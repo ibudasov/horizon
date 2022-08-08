@@ -5,8 +5,7 @@ namespace App\Domain\Template;
 
 class TemplateName
 {
-    /** @var string */
-    private $name;
+    private string $name;
 
     public function __construct(string $name)
     {

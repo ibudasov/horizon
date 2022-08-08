@@ -8,8 +8,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
 class CreateTemplateHandler implements MessageHandlerInterface
 {
-    /** @var LoggerInterface */
-    private $logger;
+    private LoggerInterface $logger;
 
     public function __construct(LoggerInterface $logger)
     {
