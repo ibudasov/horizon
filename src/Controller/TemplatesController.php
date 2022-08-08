@@ -5,7 +5,7 @@ namespace App\Controller;
 
 use App\Application\CreateTemplateApplicationService;
 use App\Core\Component\Template\Application\Repository\TemplateReadRepositoryInterface;
-use App\Core\Component\Template\Domain\CreateTemplateCommand;
+use App\Core\Component\Template\Application\UseCase\CreateTemplateCommand;
 use App\Core\Component\Template\Domain\TemplateName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -1,7 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Core\Component\Template\Domain;
+namespace App\Core\Component\Template\Application\UseCase;
+
+use App\Core\Component\Template\Domain\TemplateName;
 
 class CreateTemplateCommand
 {
