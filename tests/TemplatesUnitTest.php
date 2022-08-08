@@ -33,11 +33,6 @@ class TemplatesUnitTest extends KernelTestCase
     {
         // Arrange
         self::bootKernel();
-
-        /** @var CreateTemplateApplicationService $createTemplateService */
-        $createTemplateService = (static::getContainer())->get(CreateTemplateApplicationService::class);
-
-        self::bootKernel();
         /** @var TemplatesController $controller */
         $controller = (static::getContainer())->get(TemplatesController::class);
 
@@ -50,10 +45,7 @@ class TemplatesUnitTest extends KernelTestCase
         );
 
         // Act
-        $response = $controller->createOne(
-            $createOneRequest,
-                $createTemplateService
-        );
+        $response = $controller->createOne($createOneRequest);
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
