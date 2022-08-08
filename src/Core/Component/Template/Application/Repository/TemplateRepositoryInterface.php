@@ -5,7 +5,7 @@ namespace App\Core\Component\Template\Application\Repository;
 
 use App\Core\Component\Template\Domain\Template;
 
-interface TemplateReadRepositoryInterface
+interface TemplateRepositoryInterface
 {
     /** @return Template[] */
     function allTemplates(): array;

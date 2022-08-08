@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Presentation\Api\Rest;
 
-use App\Core\Component\Template\Application\Repository\TemplateReadRepositoryInterface;
+use App\Core\Component\Template\Application\Repository\TemplateRepositoryInterface;
 use App\Core\Component\Template\Application\UseCase\CreateTemplateCommand;
 use App\Core\Component\Template\Domain\TemplateName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,12 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TemplatesController extends AbstractController
 {
-    private TemplateReadRepositoryInterface $readRepository;
+    private TemplateRepositoryInterface $readRepository;
     private MessageBusInterface $messageBus;
 
     public function __construct(
-        TemplateReadRepositoryInterface $readRepository,
-        MessageBusInterface             $messageBus
+        TemplateRepositoryInterface $readRepository,
+        MessageBusInterface         $messageBus
     )
     {
         $this->readRepository = $readRepository;
