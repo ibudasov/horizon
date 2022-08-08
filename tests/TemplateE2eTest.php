@@ -20,4 +20,14 @@ class TemplateE2eTest extends WebTestCase
         // Validate a successful response and some content
         $this->assertResponseIsSuccessful();
     }
+
+    /** @test  */
+    function givenValidRequest_whenRequestedToCreateATemplate_thenTemplateCreated(): void
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('POST', '/templates', ['name' => 'banaan']);
+
+        $this->assertResponseIsSuccessful();
+    }
 }
