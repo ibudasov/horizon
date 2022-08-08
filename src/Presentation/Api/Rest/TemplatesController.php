@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Presentation\Api\Rest;
 
-use App\Application\CreateTemplateApplicationService;
 use App\Core\Component\Template\Application\Repository\TemplateReadRepositoryInterface;
 use App\Core\Component\Template\Application\UseCase\CreateTemplateCommand;
 use App\Core\Component\Template\Domain\TemplateName;
@@ -11,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class TemplatesController extends AbstractController
 {

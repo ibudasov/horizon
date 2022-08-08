@@ -5,7 +5,7 @@ namespace App\Tests;
 
 use App\Application\CreateTemplateApplicationService;
 use App\Controller\CreateTemplateRequest;
-use App\Controller\TemplatesController;
+use App\Presentation\Api\Rest\TemplatesController;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,7 @@ class TemplatesUnitTest extends KernelTestCase
     {
         // Arrange
         self::bootKernel();
-        /** @var TemplatesController $controller */
+        /** @var \App\Presentation\Api\Rest\TemplatesController $controller */
         $controller = (static::getContainer())->get(TemplatesController::class);
 
         // Act
@@ -33,7 +33,7 @@ class TemplatesUnitTest extends KernelTestCase
     {
         // Arrange
         self::bootKernel();
-        /** @var TemplatesController $controller */
+        /** @var \App\Presentation\Api\Rest\TemplatesController $controller */
         $controller = (static::getContainer())->get(TemplatesController::class);
 
         $createOneRequest = Request::create(
