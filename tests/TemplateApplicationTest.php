@@ -5,7 +5,7 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TemplateE2eTest extends WebTestCase
+class TemplateApplicationTest extends WebTestCase
 {
     /** @test  */
     function givenThereAreTemplates_whenRequested_thenAllOfThemReturned(): void

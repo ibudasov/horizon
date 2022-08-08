@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Controller;
+namespace App\Tests;
 
 use App\Application\CreateTemplateApplicationService;
 use App\Controller\CreateTemplateRequest;
@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class TemplatesTest extends KernelTestCase
+class TemplatesUnitTest extends KernelTestCase
 {
     /** @test */
     function given_when_thenAll(): void
