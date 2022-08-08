@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Infrastructure;
 
-use App\Core\Component\Template\Template;
-use App\Core\Component\Template\TemplateName;
-use App\Core\Component\Template\TemplateReadRepositoryInterface;
+use App\Core\Component\Template\Domain\Template;
+use App\Core\Component\Template\Domain\TemplateName;
+use App\Core\Component\Template\Domain\TemplateReadRepositoryInterface;
 
 class TemplateReadRepositoryFake implements TemplateReadRepositoryInterface
 {
