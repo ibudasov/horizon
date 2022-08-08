@@ -20,14 +20,13 @@ class TemplatesUnitTest extends KernelTestCase
         self::bootKernel();
         /** @var TemplatesController $controller */
         $controller = (static::getContainer())->get(TemplatesController::class);
-        $repo = (static::getContainer())->get(TemplateReadRepositoryInterface::class);
 
         // Act
-        $response = $controller->returnAllTheTemplates($repo);
+        $response = $controller->returnAllTheTemplates();
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
-        $this->assertEquals('[{"name":"Hagelslaag"}]', (string)$response->getContent());
+        $this->assertEquals('[{"name":"Fake Frikandel"}]', (string)$response->getContent());
     }
 
     /** @test */
@@ -39,7 +38,10 @@ class TemplatesUnitTest extends KernelTestCase
         /** @var CreateTemplateApplicationService $createTemplateService */
         $createTemplateService = (static::getContainer())->get(CreateTemplateApplicationService::class);
 
-        $controller = new TemplatesController();
+        self::bootKernel();
+        /** @var TemplatesController $controller */
+        $controller = (static::getContainer())->get(TemplatesController::class);
+
         $createOneRequest = Request::create(
             'ok',
             'POST',

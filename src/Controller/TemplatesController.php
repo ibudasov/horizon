@@ -15,6 +15,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TemplatesController extends AbstractController
 {
+    private TemplateReadRepositoryInterface $readRepository;
+
+    public function __construct(TemplateReadRepositoryInterface $readRepository)
+    {
+        $this->readRepository = $readRepository;
+    }
+
     /**
      * @todo: decouple request and it's validation from the controller
      * @Route("/templates", methods={"POST"})
@@ -33,12 +40,13 @@ class TemplatesController extends AbstractController
     /**
      * @Route("/templates", methods={"GET"})
      */
-    function returnAllTheTemplates(TemplateReadRepositoryInterface $readRepository): JsonResponse
+    function returnAllTheTemplates(): JsonResponse
     {
         $response = [];
-        foreach ($readRepository->allTemplates() as $template) {
+        foreach ($this->readRepository->allTemplates() as $template) {
             $response[] = ['name' => $template->name()->getValue()];
         }
+
         return new JsonResponse($response);
     }
 }
