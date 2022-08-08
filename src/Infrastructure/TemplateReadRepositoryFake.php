@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Application;
+namespace App\Infrastructure;
 
 use App\Core\Component\Template\Template;
 use App\Core\Component\Template\TemplateName;
