@@ -29,6 +29,11 @@ class TemplatesTest extends KernelTestCase
     function givenValidRequest_whenRequested_thenNewTemplateIsReturned(): void
     {
         // Arrange
+        self::bootKernel();
+
+        /** @var CreateTemplateApplicationService $createTemplateService */
+        $createTemplateService = (static::getContainer())->get(CreateTemplateApplicationService::class);
+
         $controller = new TemplatesController();
         $createOneRequest = Request::create(
             'ok',
@@ -41,7 +46,7 @@ class TemplatesTest extends KernelTestCase
         // Act
         $response = $controller->createOne(
             $createOneRequest,
-            new CreateTemplateApplicationService()
+                $createTemplateService
         );
 
         // Assert
