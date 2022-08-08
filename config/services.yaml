@@ -20,5 +20,14 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Application\TemplateReadRepository: ~
+    App\Domain\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepository'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+
+# This is a fake repository substitution for unit tests
+when@test:
+    services:
+        App\Application\TemplateReadRepositoryFake: ~
+        App\Domain\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepositoryFake'

@@ -6,6 +6,7 @@ namespace App\Tests;
 use App\Application\CreateTemplateApplicationService;
 use App\Controller\CreateTemplateRequest;
 use App\Controller\TemplatesController;
+use App\Domain\Template\TemplateReadRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,13 +17,17 @@ class TemplatesUnitTest extends KernelTestCase
     function given_when_thenAll(): void
     {
         // Arrange
-        $controller = new TemplatesController();
+        self::bootKernel();
+        /** @var TemplatesController $controller */
+        $controller = (static::getContainer())->get(TemplatesController::class);
+        $repo = (static::getContainer())->get(TemplateReadRepositoryInterface::class);
 
         // Act
-        $response = $controller->returnAllTheTemplates();
+        $response = $controller->returnAllTheTemplates($repo);
 
         // Assert
         $this->assertInstanceOf(JsonResponse::class, $response);
+        $this->assertEquals('[{"name":"Hagelslaag"}]', (string)$response->getContent());
     }
 
     /** @test */

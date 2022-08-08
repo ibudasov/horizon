@@ -4,7 +4,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Application\CreateTemplateApplicationService;
+use App\Application\TemplateReadRepository;
 use App\Domain\Template\TemplateName;
+use App\Domain\Template\TemplateReadRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +19,7 @@ class TemplatesController extends AbstractController
      * @todo: decouple request and it's validation from the controller
      * @Route("/templates", methods={"POST"})
      */
-    function createOne(Request $request, CreateTemplateApplicationService $createTemplateService): Response
+    function createOne(Request $request, CreateTemplateApplicationService $createTemplateService): JsonResponse
     {
         $createTemplateService->createTemplate(
             new TemplateName($request->request->get('name'))
@@ -31,11 +33,12 @@ class TemplatesController extends AbstractController
     /**
      * @Route("/templates", methods={"GET"})
      */
-    function returnAllTheTemplates(): Response
+    function returnAllTheTemplates(TemplateReadRepositoryInterface $readRepository): JsonResponse
     {
-        return new JsonResponse([
-            'ok' => 'ok',
-            'no' => 'no'
-        ]);
+        $response = [];
+        foreach ($readRepository->allTemplates() as $template) {
+            $response[] = ['name' => $template->name()->getValue()];
+        }
+        return new JsonResponse($response);
     }
 }
