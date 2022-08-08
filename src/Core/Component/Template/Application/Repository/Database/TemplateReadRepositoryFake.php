@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Infrastructure;
+namespace App\Core\Component\Template\Application\Repository\Database;
 
+use App\Core\Component\Template\Application\Repository\TemplateReadRepositoryInterface;
 use App\Core\Component\Template\Domain\Template;
 use App\Core\Component\Template\Domain\TemplateName;
-use App\Core\Component\Template\Domain\TemplateReadRepositoryInterface;
 
 class TemplateReadRepositoryFake implements TemplateReadRepositoryInterface
 {

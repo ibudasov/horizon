@@ -4,9 +4,9 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Application\CreateTemplateApplicationService;
+use App\Core\Component\Template\Application\Repository\TemplateReadRepositoryInterface;
 use App\Core\Component\Template\Domain\CreateTemplateCommand;
 use App\Core\Component\Template\Domain\TemplateName;
-use App\Core\Component\Template\Domain\TemplateReadRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
