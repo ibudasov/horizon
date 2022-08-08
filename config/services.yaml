@@ -21,7 +21,7 @@ services:
             - '../src/Kernel.php'
 
     App\Application\TemplateReadRepository: ~
-    App\Domain\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepository'
+    App\Core\Component\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepository'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
@@ -30,4 +30,4 @@ services:
 when@test:
     services:
         App\Application\TemplateReadRepositoryFake: ~
-        App\Domain\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepositoryFake'
+        App\Core\Component\Template\TemplateReadRepositoryInterface: '@App\Application\TemplateReadRepositoryFake'

@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace App\Application;
 
-use App\Domain\Template\CreateTemplateCommand;
-use App\Domain\Template\TemplateName;
+use App\Core\Component\Template\CreateTemplateCommand;
+use App\Core\Component\Template\TemplateName;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 class CreateTemplateApplicationService

@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 namespace App\Application;
 
-use App\Domain\Template\Template;
-use App\Domain\Template\TemplateName;
+use App\Core\Component\Template\Template;
+use App\Core\Component\Template\TemplateName;
 
-class TemplateReadRepository implements \App\Domain\Template\TemplateReadRepositoryInterface
+class TemplateReadRepository implements \App\Core\Component\Template\TemplateReadRepositoryInterface
 {
     function allTemplates(): array
     {

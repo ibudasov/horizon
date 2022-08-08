@@ -6,7 +6,6 @@ namespace App\Tests;
 use App\Application\CreateTemplateApplicationService;
 use App\Controller\CreateTemplateRequest;
 use App\Controller\TemplatesController;
-use App\Domain\Template\TemplateReadRepositoryInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

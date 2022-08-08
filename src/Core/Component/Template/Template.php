@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Domain\Template;
+namespace App\Core\Component\Template;
 
-class CreateTemplateCommand
+class Template
 {
     private TemplateName $name;
 
@@ -12,8 +12,10 @@ class CreateTemplateCommand
         $this->name = $name;
     }
 
-    function getName(): TemplateName
+    function name(): TemplateName
     {
         return $this->name;
     }
+
+
 }
