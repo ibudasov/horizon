@@ -1,11 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Domain\Template;
+namespace App\Application;
 
+use App\Domain\Template\CreateTemplateCommand;
+use App\Domain\Template\TemplateName;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-class CreateTemplateService
+class CreateTemplateApplicationService
 {
     private MessageBusInterface $messageBus;
 

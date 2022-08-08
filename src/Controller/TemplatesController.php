@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Domain\Template\CreateTemplateService;
+use App\Application\CreateTemplateApplicationService;
 use App\Domain\Template\TemplateName;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,7 +17,7 @@ class TemplatesController extends AbstractController
      * @todo: decouple request and it's validation from the controller
      * @Route("/templates", methods={"POST"})
      */
-    function createOne(Request $request, CreateTemplateService $createTemplateService): Response
+    function createOne(Request $request, CreateTemplateApplicationService $createTemplateService): Response
     {
         $createTemplateService->createTemplate(
             new TemplateName($request->request->get('name'))

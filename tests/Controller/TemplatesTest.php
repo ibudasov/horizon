@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 namespace App\Tests\Controller;
 
+use App\Application\CreateTemplateApplicationService;
 use App\Controller\CreateTemplateRequest;
 use App\Controller\TemplatesController;
-use App\Domain\Template\CreateTemplateService;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +41,7 @@ class TemplatesTest extends KernelTestCase
         // Act
         $response = $controller->createOne(
             $createOneRequest,
-            new CreateTemplateService()
+            new CreateTemplateApplicationService()
         );
 
         // Assert
