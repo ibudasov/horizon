@@ -20,6 +20,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\GraphQL\Resolver\TemplateResolverMap:
+        tags:
+            - { name: overblog_graphql.resolver_map, schema: default }
+
     App\Core\Component\Template\Application\Repository\TemplateRepositoryInterface: '@App\Core\Component\Template\Application\Repository\Database\TemplateRepository'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
