@@ -1,4 +1,4 @@
-# 🌅vHorizon Prototype
+# 🌅 Horizon Prototype
 
 CQRS, Ports/Adaptors, GraphQL
 
