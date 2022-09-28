@@ -1,6 +1,6 @@
-# LarsMailer
+# 🌅vHorizon Prototype
 
-A test project which suppose to demo (all) patterns of Horizon
+CQRS, Ports/Adaptors, GraphQL
 
 # Commands
 
@@ -8,6 +8,9 @@ A test project which suppose to demo (all) patterns of Horizon
 
 `composer serve`
 
-    1. Define your schema, read documentation https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/index.md
-    2. If you want to see your dumped schema (really not necessary for bootstrap): run bin/console graphql:dump-schema
-    3. If you want to have GraphiQL to browse your API run: composer req --dev overblog/graphiql-bundle
+`bin/console graphql:dump-schema`
+
+# Links
+
+- https://www.twilio.com/blog/develop-graphql-powered-api-with-symfony
+- Define your schema, read documentation https://github.com/overblog/GraphQLBundle/blob/master/docs/definitions/index.md
