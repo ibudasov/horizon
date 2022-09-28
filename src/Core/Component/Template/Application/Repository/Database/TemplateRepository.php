@@ -14,6 +14,8 @@ class TemplateRepository implements \App\Core\Component\Template\Application\Rep
     public function __construct(array $templatesStorage = [])
     {
         $this->templatesStorage = $templatesStorage;
+        $this->add(new Template(new TemplateName('banaan')));
+        $this->add(new Template(new TemplateName('meatballs')));
     }
 
     function add(Template $template): void
